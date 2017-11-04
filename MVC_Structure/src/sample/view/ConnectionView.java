@@ -58,7 +58,6 @@ public class ConnectionView {
                 mysql.setUrl();
                 mysql.setUsername(userNameInput.getText());
                 mysql.setPassword(passwordInput.getText());
-                mysql.setConnection(connection);
                 mysql.getConnection();
             } catch (ClassNotFoundException e1) {
                 e1.printStackTrace();

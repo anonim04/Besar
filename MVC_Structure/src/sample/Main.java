@@ -3,6 +3,7 @@ package sample;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.view.AddListDatabase;
 import sample.view.ConnectionView;
 
 public class Main extends Application {
@@ -14,7 +15,7 @@ public class Main extends Application {
         //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("MVC");
 
-        primaryStage.setScene(new Scene(ConnectionView.connection(), 300, 275));
+        primaryStage.setScene(new Scene(AddListDatabase.add(), 300, 275));
         primaryStage.show();
     }
 

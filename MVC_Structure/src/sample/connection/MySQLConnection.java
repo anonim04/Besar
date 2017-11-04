@@ -6,27 +6,31 @@ import java.sql.SQLException;
 
 public class MySQLConnection {
     Connection connection = null;
-    String driver;
-    String databaseName;
-    String url;
-    String username;
-    String password;
+    String driver = "com.mysql.jdbc.Driver";
+    String databaseName = "log_bendahara";
+    String url = "jdbc:mysql://localhost/" + databaseName;
+    String username = "root";
+    String password = "";
 
-    public void setConnection(Connection connection) throws ClassNotFoundException {
+    public Connection getConnection() throws ClassNotFoundException {
         try {
             Class.forName(getDriver());
-            connection = DriverManager.getConnection(url,getUsername(),getPassword());
+            this.connection = DriverManager.getConnection(url,getUsername(),getPassword());
             System.out.println("Connected to database : " + getDatabaseName());
         } catch (SQLException e) {
             System.out.println("SQLException: "+e.getMessage());
             System.out.println("SQLState: "+e.getSQLState());
             System.out.println("VendorError: "+e.getErrorCode());
         }
-        this.connection = connection;
+        return this.connection;
     }
 
-    public Connection getConnection() {
-        return connection;
+    public void closeConnection(Connection connection){
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setDatabaseName(String databaseName) {
@@ -38,7 +42,7 @@ public class MySQLConnection {
     }
 
     public void setDriver(String driver) {
-        this.driver = "com."+driver+".jdbc.Driver";
+        this.driver = driver;
     }
 
     public String getDriver() {
@@ -62,7 +66,7 @@ public class MySQLConnection {
     }
 
     public void setUrl() {
-        this.url = "jdbc:mysql://localhost/" + getDatabaseName();
+        this.url = url;
     }
 
     public String getUrl() {
