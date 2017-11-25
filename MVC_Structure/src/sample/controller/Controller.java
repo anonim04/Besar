@@ -1,12 +1,12 @@
 package sample.controller;
 
-import sample.model.Database;
+import sample.model.Log;
 import sample.model.Query;
 import java.time.LocalDate;
 
 public class Controller {
 
-    Database db = new Database();
+    Log db = new Log();
     Query query = new Query();
 
     public void add(String about, String income, String spend){

@@ -21,14 +21,14 @@ public class ConnectionView {
         layout.setVgap(8);
         layout.setHgap(10);
 
-        Label choiceDatabaseLabel = new Label("Pilih Database");
+        Label choiceDatabaseLabel = new Label("Pilih Log");
         GridPane.setConstraints(choiceDatabaseLabel, 0,0);
 
         ComboBox<String> choiceDatabaseInput = new ComboBox<>();
         choiceDatabaseInput.getItems().addAll("mysql", "MariaDB", "Postgree");
         GridPane.setConstraints(choiceDatabaseInput, 1,0);
 
-        Label nameDatabaseLabel = new Label("Nama Database");
+        Label nameDatabaseLabel = new Label("Nama Log");
         GridPane.setConstraints(nameDatabaseLabel, 0,1);
 
         TextField nameDabaseInput = new TextField();

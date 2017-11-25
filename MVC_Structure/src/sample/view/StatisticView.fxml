@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.collections.FXCollections?>
+<?import sample.model.Person?>
+<?import sample.controller.StatisticController?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.StatisticController">
+   <children>
+      <TableView fx:id="statisticView" editable="true" layoutX="40.0" layoutY="74.0" prefHeight="253.0" prefWidth="507.0" tableMenuButtonVisible="true">
+          <columns>
+              <TableColumn fx:id="nomor" prefWidth="43.0" text="No">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="nomor" />
+                  </cellValueFactory>
+              </TableColumn>
+              <TableColumn fx:id="date" prefWidth="94.0" text="Tanggal">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="date" />
+                  </cellValueFactory>
+              </TableColumn>
+              <TableColumn fx:id="about" prefWidth="195.0" text="Uraian">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="about" />
+                  </cellValueFactory>
+              </TableColumn>
+              <TableColumn fx:id="income" text="Pemasukan">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="income" />
+                  </cellValueFactory>
+              </TableColumn>
+              <TableColumn fx:id="spend" prefWidth="81.0" text="Pengeluaran">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="spend" />
+                  </cellValueFactory>
+              </TableColumn>
+          </columns>
+          <items>
+              <FXCollections fx:factory="observableArrayList">
+                  <StatisticController about="saf" lastName="asdf"
+                                       email="asdfasdfdsf"/>
+              </FXCollections>
+          </items>
+      </TableView>
+   </children>
+</AnchorPane>

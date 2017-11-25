@@ -6,7 +6,7 @@ import java.sql.*;
 import java.time.LocalDate;
 
 
-public class Database {
+public class Log {
     int id;
     String about;
     double income;
@@ -127,24 +127,72 @@ public class Database {
         Connection connection = null;
         MySQLConnection mysqlConnection = new MySQLConnection();
         PreparedStatement preparedStatement = null;
+        Statement statement = null;
         ResultSet resultSet;
 
         try {
             connection = mysqlConnection.getConnection();
 
+            statement = connection.createStatement();
             String sql =
                     "SELECT about, incomes, spends " +
                     "FROM log " +
-                    "WHERE id = ?;";
+                    "WHERE id = ? ;";
 
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, getId());
 
-            resultSet = preparedStatement.executeQuery(sql);
+            statement.execute(sql);
+
+            //preparedStatement = connection.prepareStatement(sql);
+            //preparedStatement.setInt(1, getId());
+            //preparedStatement.executeUpdate();
+
+            resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                String about = resultSet.getString("about");
+                String income = resultSet.getString("incomes");
+                String spend = resultSet.getString("spends");
+
+                setAbout(about);
+                setIncome(income);
+                setSpend(spend);
+
+
+                System.out.println(getAbout());
+                System.out.println(getIncome());
+                System.out.println(getSpend());
+            }
+
+
+
+            resultSet.close();
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if(preparedStatement != null){
+                    preparedStatement.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                if(connection != null){
+                    connection.close();
+                }
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+            try {
+                if(statement != null){
+                    statement.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

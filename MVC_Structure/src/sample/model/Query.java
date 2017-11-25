@@ -2,7 +2,6 @@ package sample.model;
 
 import sample.connection.MySQLConnection;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -11,7 +10,7 @@ public class Query {
     public void insert(){
         Connection connection = null;
         MySQLConnection mysqlConnection = new MySQLConnection();
-        Database db = new Database();
+        Log db = new Log();
         PreparedStatement preparedStatement = null;
 
         try {
