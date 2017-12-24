@@ -1,5 +1,6 @@
 package sample.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -19,4 +20,12 @@ public class IncomeController {
     @FXML
     private Button sendIncomeButton;
 
+    Controller controller = new Controller();
+
+    @FXML
+    void sendIncome(ActionEvent event) {
+        sendIncomeButton.setOnAction(e->{
+            controller.addToIncome(aboutIncome.getText(), valueIncome.getText());
+        });
+    }
 }

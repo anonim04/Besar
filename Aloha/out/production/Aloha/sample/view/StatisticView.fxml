@@ -24,7 +24,7 @@
                       <PropertyValueFactory property="about" />
                   </cellValueFactory>
               </TableColumn>
-              <TableColumn prefWidth="81.0" text="Pemasukan">
+              <TableColumn text="Pemasukan">
                   <cellValueFactory>
                       <PropertyValueFactory property="income" />
                   </cellValueFactory>

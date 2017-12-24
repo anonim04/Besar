@@ -38,10 +38,10 @@ public class AddListDatabase {
 
 
         Button connectButton = new Button("Send");
-        GridPane.setConstraints(connectButton, 1,4);
-        connectButton.setOnAction(e->{
-            controller.add(aboutInput.getText(), incomeInput.getText(), spendInput.getText());
-        });
+//        GridPane.setConstraints(connectButton, 1,4);
+//        connectButton.setOnAction(e->{
+//            controller.add(aboutInput.getText(), incomeInput.getText(), spendInput.getText());
+//        });
 
         layout.getChildren().addAll(
                 aboutLabel,
